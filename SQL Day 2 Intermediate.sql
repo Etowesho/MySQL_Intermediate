@@ -22,6 +22,16 @@ FROM tutorial.aapl_historical_stock_price
 select min(low) as min_stock
 FROM tutorial.aapl_historical_stock_price
 	--
+select distinct month 
+from tutorial.aapl_historical_stock_price
+	--
+select distinct month, year 
+from tutorial.aapl_historical_stock_price
+	--
+select distinct year
+from tutorial.aapl_historical_stock_price
+order by year ASC
+	--
 select max(close)
 FROM tutorial.aapl_historical_stock_price
 	--
@@ -79,5 +89,16 @@ SELECT CASE WHEN year = 'FR' THEN 'FR'
             COUNT(*) AS count
   FROM benn.college_football_players
  GROUP BY year_group
+	--
+select count(distinct month) as unique_month
+from tutorial.aapl_historical_stock_price
+	--
+select year, count(distinct month) as unique_month
+from tutorial.aapl_historical_stock_price
+group by year
+order by year asc
+	--
+select count(distinct month) as unique_month, count (distinct year) as unique_year
+from tutorial.aapl_historical_stock_price
 	--
 
