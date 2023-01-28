@@ -101,4 +101,41 @@ order by year asc
 select count(distinct month) as unique_month, count (distinct year) as unique_year
 from tutorial.aapl_historical_stock_price
 	--
-
+select * from benn.college_football_players p 
+join benn.college_football_teams t 
+on t.school_name = p.school_name 
+	--
+select p.*, t.* 
+from benn.college_football_players p 
+join benn.college_football_teams t 
+on t.school_name = p.school_name 
+	--
+select p.player_name, p.school_name, t.conference 
+from benn.college_football_players p 
+join benn.college_football_teams t 
+on t.school_name = p.school_name 
+where division = 'FBS (Division I-A Teams)'
+	--
+select * from tutorial.crunchbase_companies comp
+left join tutorial.crunchbase_acquisitions acq
+on comp.permalink = acq.company_permalink 
+	--
+select count(comp.permalink) as comp_permalink ,count(acq.company_permalink) as acq_permalink
+from tutorial.crunchbase_companies comp
+left join tutorial.crunchbase_acquisitions acq
+on comp.permalink = acq.company_permalink  
+	--
+select count(comp.permalink) as comp_permalink ,count(acq.company_permalink) as acq_permalink
+from tutorial.crunchbase_companies comp
+inner join tutorial.crunchbase_acquisitions acq
+on comp.permalink = acq.company_permalink 
+	--
+select count(distinct comp.permalink) as comp_permalink ,count(distinct acq.company_permalink) as acq_permalink
+from tutorial.crunchbase_companies comp
+inner join tutorial.crunchbase_acquisitions acq
+on comp.permalink = acq.company_permalink 
+	--
+select count(distinct comp.permalink) as comp_permalink ,count(distinct acq.company_permalink) as acq_permalink
+from tutorial.crunchbase_companies comp
+right join tutorial.crunchbase_acquisitions acq
+on comp.permalink = acq.company_permalink 
